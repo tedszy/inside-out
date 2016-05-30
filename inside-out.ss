@@ -11,7 +11,7 @@
 (define (sq u) (* u u))
 
 ;; We need routines for 2x2 matrix arithmetic. 
-;; 2x2 matricies are represented as row-form lists:
+;; 2x2 matrices are represented as row-form lists:
 ;;
 ;; [ a b
 ;;   c d ] = (a b c d)
@@ -64,7 +64,7 @@
 ;; Guile doesn't support exact complex numbers.
 ;; But it seems that = compares complex numbers 
 ;; correctly (at least for our purpose here.)
-;; Two matricies are equal if their elements
+;; Two matrices are equal if their elements
 ;; (which could be complex) are pairwise =.
 (define (mat= A B) (every (lambda (u) u) (map = A B)))
 
@@ -196,7 +196,7 @@
 ;; 3. EXAMPLE: PAULI MATRICIES.
 
 ;; Any 2x2 matrix A can be expressed as a linear combination
-;; of Pauli matricies and I:
+;; of Pauli matrices and I:
 ;;
 ;; A = w*I + x*s1 + y*s2 + z*s3.
 

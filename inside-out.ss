@@ -193,14 +193,14 @@
 
 ;; -----------------------------------------------------
 
-;; 3. EXAMPLE: PAULI MATRICIES.
+;; 3. EXAMPLE: PAULI MATRICES.
 
 ;; Any 2x2 matrix A can be expressed as a linear combination
 ;; of Pauli matrices and I:
 ;;
 ;; A = w*I + x*s1 + y*s2 + z*s3.
 
-;; Pauli matricies.
+;; Pauli matrices.
 (define I '(1 0 0 1))
 (define s1 '(0 1 1 0))
 (define s2 '(0 0-1i 0+1i 0))

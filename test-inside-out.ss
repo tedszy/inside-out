@@ -40,7 +40,7 @@
 
 (test-begin "pauli")
 
-;; Properties of Pauli matricies.
+;; Properties of Pauli matrices.
 (test-assert (mat= (mat* s1 s2) (sca* 0+1i s3)))
 (test-assert (mat= (mat* s2 s3) (sca* 0+1i s1)))
 (test-assert (mat= (mat* s3 s1) (sca* 0+1i s2)))

@@ -137,4 +137,26 @@
 
 (test-end "higher-fibonacci")
 
+;; --------------------------------------------
+
+(test-begin "classic")
+
+(receive (a b) (k 100)
+	 (test-eq #t a)
+	 (test-eq #f b))
+
+(receive (a b) (k 89)
+	 (test-eq #f a)
+	 (test-eq #t b))
+
+(receive (a b) (Kn 100)
+	 (test-eq #t a)
+	 (test-eq #f b))
+
+(receive (a b) (Kn 37)
+	 (test-eq #f a)
+	 (test-eq #t b))
+
+(test-end "classic")
+
 (test-end "inside-out")

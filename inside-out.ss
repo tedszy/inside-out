@@ -437,13 +437,40 @@
 		     (e? (- n 1))))))
     (e? m)))
 
+;; Yes it can.
 
+;; Modify the above so that it takes two arguments and
+;; returns two values. The first return value corresponds
+;; to evenness, the second one to oddness.
+(define (k m)
+  (letrec ((a (lambda (n)
+		(if (zero? n)
+		    #t
+		    (b (- n 1)))))
+	   (b (lambda (n)
+		(if (zero? n)
+		    #f
+		    (a (- n 1))))))
+    (values (a m)
+	    (b m))))
 
+;; Turning it inside-out, function iteration scheme should be
+;;
+;; a,b => b-1, a-1
+;;
+;; When a=0 then a was even and b was odd (#t, #f).
+;; When b=0 then a was odd and b was even (#f, #t).
+;; b is just a-1. 
+(define (K a b)
+  (cond ((zero? a) (values #t #f))
+	((zero? b) (values #f #t))
+	(else
+	 (values (- b 1) (- a 1)))))
 
+;; Function-iteration version.
+;; To determine if n is even or odd, 
+;; we have to apply K n times to n, n-1.
+(define (Kn n) ((apply many-compose (make-list n K)) n (- n 1)))
 
-
-
-
-
-
+;; The classic case of mutual recursion has been turned inside-out!
 
